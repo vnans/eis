@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisation{% endblock %}
+
+{% block body %}
+<main id="main" class="main-page">
+
+  <!--==========================
+    Speaker Details Section
+  ============================-->
+  <section id="speakers-details" class="wow fadeIn">
+    <div class="container">
+      <div class="section-header">
+        <h2>Détails realisation {{ realisation.libelle }}</h2>
+        <p></p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <img src="/img/{{realisation.image}}" alt="{{ realisation.image }}" class="img-fluid">
+        </div>
+
+        <div class="col-md-6">
+          <div class="details">
+            <h2>{{ realisation.libelle }}</h2>
+            <div class="social">
+              <a href=""><i class="fa fa-twitter"></i></a>
+              <a href=""><i class="fa fa-facebook"></i></a>
+              <a href=""><i class="fa fa-google-plus"></i></a>
+              <a href=""><i class="fa fa-linkedin"></i></a>
+            </div>
+            <p>{{ realisation.details}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+
+    <!-- <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ realisation.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ realisation.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Details</th>
+                <td>{{ realisation.details }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ realisation.image }}</td>
+            </tr>
+            <tr>
+                <th>Piecejointe</th>
+                <td>{{ realisation.piecejointe }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ realisation.slug }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('realisation_index') }}">back to list</a>
+
+    <a href="{{ path('realisation_edit', {'id': realisation.id}) }}">edit</a>
+
+    {{ include('realisation/_delete_form.html.twig') }} -->
+{% endblock %}

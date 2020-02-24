@@ -1,0 +1,70 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Ajout de Service {% endblock %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Liste </h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Libelle</th>
+              <th>Detail</th>
+              <th>Image</th>
+              <th>Piecejointe</th>
+              <th>actions</th>
+            </tr>
+          </thead>
+
+          <tfoot>
+            <tr>
+              <th>Libelle</th>
+              <th>Detail</th>
+              <th>Image</th>
+              <th>Piecejointe</th>
+              <th>actions</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            {% for service in services %}
+                <tr>
+
+                    <td>{{ service.libelle }}</td>
+                    <td>{{ service.detail }}</td>
+                    <td>{{ service.image }}</td>
+                    <td>{{ service.piecejointe }}</td>
+
+                    <td>
+                        <!-- <a href="{{ path('service_show', {'id': service.id}) }}">show</a> -->
+                        <a href="{{ path('service_edit', {'id': service.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun enregistrement</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Ajout de Produit {% endblock %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Liste </h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+
+                <th>Libelle</th>
+                <th>Detail</th>
+                <th>Images</th>
+                <th>Pieces jointe</th>
+
+                <th>actions</th>
+            </tr>
+          </thead>
+
+          <tfoot>
+            <tr>
+                <th>Libelle</th>
+                <th>Details </th>
+                <th>Image</th>
+                <th>Pieces jointe</th>
+                <th>actions</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            {% for produit in produits %}
+                <tr>
+
+                    <td>{{ produit.libelle }}</td>
+                    <td>{{ produit.detail }}</td>
+                    <td>{{ produit.image }}</td>
+                    <td>{{ produit.piecejointe }}</td>
+
+                    <td>
+                        <!-- <a href="{{ path('produit_show', {'id': produit.id}) }}">Details</a> -->
+                        <a href="{{ path('produit_edit', {'id': produit.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun enregistrement  </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    <!-- <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Detail</th>
+                <th>Image</th>
+                <th>Piecejointe</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.libelle }}</td>
+                <td>{{ produit.detail }}</td>
+                <td>{{ produit.image }}</td>
+                <td>{{ produit.piecejointe }}</td>
+                <td>{{ produit.slug }}</td>
+                <td>
+                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> -->
+
+    <!-- <a href="{{ path('produit_new') }}">Create new</a> -->
+{% endblock %}

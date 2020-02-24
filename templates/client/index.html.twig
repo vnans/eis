@@ -1,0 +1,52 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <h1>Nos Clients</h1>
+
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.img1 }}</td>
+            </tr>
+            <tr>
+              <td>{{ client.img2 }}</td>
+            </tr>
+            <tr>
+              <td>{{ client.img3 }}</td>
+            </tr>
+            <tr>
+              <td>{{ client.img4 }}</td>
+            </tr>
+            <tr>
+                <td>{{ client.img5 }}</td>
+            </tr>
+            <tr>
+                <td>{{ client.img6 }}</td>
+            </tr>
+            <tr>
+              <td>{{ client.img7 }}</td>
+            </tr>
+            <tr>
+              <td>{{ client.img8 }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <!-- <a href="{{ path('client_show', {'id': client.id}) }}">show</a> -->
+                    <a href="{{ path('client_edit', {'id': client.id}) }}">Modifier</a>
+                </td>
+            </tr>
+
+        {% else %}
+            <tr>
+                <td colspan="10">Rien trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('client_new') }}">Nouveau</a>
+{% endblock %}

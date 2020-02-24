@@ -1,0 +1,73 @@
+{{ form_start(form) }}
+
+
+
+
+
+
+
+    <body class="bg-gradient-primary">
+
+      <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Réglages</h1>
+                  </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-12 mb-3 mb-sm-0">
+                          {{ form_widget(form.apropos,{'attr':{'class':'form-control form-control-user','rows':'8','id':'exampleLastName','placeholder':'A propos'}}) }}
+
+                      </div>
+
+                    </div>
+
+                    <div class="form-group">
+                      {{ form_widget(form.adresse,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'Adresse'}}) }}
+
+                    </div>
+                    <div class="form-group">
+                      {{ form_widget(form.telephone,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'Téléphone'}}) }}
+
+                    </div>
+                    <div class="form-group">
+                      {{ form_widget(form.email,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'Email'}}) }}
+
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-12 mb-3 mb-sm-0">
+                        <label for="">Image</label>
+                        {{ form_widget(form.imageaccueil,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'image accueil'}}) }}
+
+                      </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                      <div class="col-sm-12">
+                        <label for="">Piece jointe</label>
+                        {{ form_widget(form.logo,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'Logo'}}) }}
+                      </div>
+                    </div>
+                  <hr>
+                    <button class="btn btn-primary btn-user btn-block">{{ button_label|default('Enrégistrer') }}</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </body>
+
+{{ form_end(form) }}

@@ -1,0 +1,64 @@
+{{ form_start(form) }}
+
+
+
+
+
+
+
+    <body class="bg-gradient-primary">
+
+      <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Ajouter un nouveau service</h1>
+                  </div>
+
+                    <div class="form-group row">
+                      <div class="col-sm-12 mb-3 mb-sm-0">
+                          {{ form_widget(form.libelle,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'Libelle'}}) }}
+
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      {{ form_widget(form.detail,{'attr':{'class':'form-control form-control-user','rows':'8','id':'exampleLastName','placeholder':'Details'}}) }}
+
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-12 mb-3 mb-sm-0">
+                        <label for="">Image</label>
+                        {{ form_widget(form.image,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'image'}}) }}
+
+                      </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                      <div class="col-sm-12">
+                        <label for="">Piece jointe</label>
+                        {{ form_widget(form.piecejointe,{'attr':{'class':'form-control form-control-user','id':'exampleLastName','placeholder':'piece jointe'}}) }}
+                      </div>
+                    </div>
+                  <hr>
+                    <button class="btn btn-primary btn-user btn-block">{{ button_label|default('Enrégistrer') }}</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </body>
+
+{{ form_end(form) }}

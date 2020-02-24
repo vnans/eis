@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+<main id="main" >
+  <!--==========================
+    Hotels Section
+  ============================-->
+  <section id="hotels" class="section-with-bg wow fadeInUp">
+
+    <div class="container">
+      <div class="section-header">
+        <h2>NOS PRODUITS</h2>
+        <p></p>
+      </div>
+
+      <div class="row">
+      {% for produit in produits %}
+
+          <div class="col-lg-4 col-md-6">
+            <div class="hotel">
+              <div class="hotel-img">
+                <img src="/img/{{ produit.image}}" alt="/img/{{ produit.image }}" class="img-fluid">
+              </div>
+              <h3><a href="{{ path('produit_show', {'id': produit.id}) }}">{{ produit.libelle }}</a></h3>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+              <p> <a href="{{ path('produit_show', {'id': produit.id}) }}"><button class="btn btn-warning" type="button" name="button">Details</button> </a> </p>
+            </div>
+          </div>
+      {% else %}
+      <tr>
+          <td colspan="7">Rien trouvé</td>
+      </tr>
+  {% endfor %}
+
+
+
+
+      </div>
+    </div>
+
+  </section>
+</main>
+<!--
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Detail</th>
+                <th>Image</th>
+                <th>Piecejointe</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.libelle }}</td>
+                <td>{{ produit.detail }}</td>
+                <td>{{ produit.image }}</td>
+                <td>{{ produit.piecejointe }}</td>
+                <td>{{ produit.slug }}</td>
+                <td>
+                    <a href="{{ path('produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produit_new') }}">Nouveau</a> -->
+{% endblock %}

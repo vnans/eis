@@ -1,0 +1,72 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Params index{% endblock %}
+
+{% block body %}
+    <h1>Parametre</h1>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+      <!-- Page Heading -->
+        <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              {% for param in params %}
+              <tr>
+                  <th>A propos</th>
+                    <td>{{ param.apropos }}</td>
+              </tr>
+              <tr>
+                <th>Image d'accueil</th>
+                <td>{{ param.imageaccueil }}</td>
+              </tr>
+
+              <tr>
+
+                <th>Logo</th>
+                <td>{{ param.logo }}</td>
+              </tr>
+
+              <tr>
+                <th>Adresse</th>
+                <td>{{ param.adresse }}</td>
+              </tr>
+
+              <tr>
+                <th>Telephone</th>
+                <td>{{ param.telephone }}</td>
+              </tr>
+
+              <tr>
+
+                <th>Email</th>
+                <td>{{ param.email }}</td>
+              </tr>
+
+              <tr>
+
+                <th>actions</th>
+                <td>
+                <a href="{{ path('params_edit', {'id': param.id}) }}">Modifier</a>
+                </td>
+              </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">Aucun enregistrement trouvé</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- <a href="{{ path('params_new') }}">Nouveau</a> -->
+{% endblock %}

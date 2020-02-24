@@ -1,0 +1,316 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EIS{% endblock %}
+
+{% block body %}
+
+
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0">EIS<br><span id="orange">Eburnie</span> Ingeneries <span>Service</span> </h1>
+      <p class="mb-4 pb-0">Abidjan, Cote d'Ivoire</p>
+      <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a>
+      <a href="#about" class="about-btn scrollto">A prop The Event</a> -->
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>A propos de EIS </h2>
+            {% for param in params %}
+            <p>{{param.apropos }}</p>
+            {% endfor %}
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Speakers Section
+    ============================-->
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>NOS SERVICES</h2>
+          <p> <a href="{{path('service_index') }}" class="buy-tickets"> <button class="btn btn-success" type="button" name="button">En savoir plus</button> </a>  </p>
+        </div>
+
+        <div class="row">
+        {% for service in services %}
+        <div class="col-lg-4 col-md-6">
+          <div class="speaker">
+            <img src="/img/{{ service.image }}" alt="/img/{{ service.image }}" class="img-fluid">
+            <div class="details">
+              <h3><a href="{{ path('service_show', {'id': service.id}) }}">{{ service.libelle }}</a></h3>
+              <p><a href="{{ path('service_show', {'id': service.id}) }}">Details</a> </p>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% else %}
+            <tr>
+                <td colspan="7">Rien trouvé </td>
+            </tr>
+        {% endfor %}
+      </div>
+      </div>
+
+    </section>
+
+    <!--==========================
+      Speakers realisation
+    ============================-->
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>NOS REALISATIONS</h2>
+          <p> <a href="{{path('service_index') }}" class="buy-tickets"> <button class="btn btn-success" type="button" name="button">En savoir plus</button> </a>  </p>
+        </div>
+
+        <div class="row">
+        {% for realisation in realisations %}
+        <div class="col-lg-4 col-md-6">
+          <div class="speaker">
+            <img src="/img/{{ realisation.image }}" alt="/img/{{ realisation.image }}" class="img-fluid">
+            <div class="details">
+              <h3><a href="{{ path('realisation_show', {'id': realisation.id}) }}">{{ realisation.libelle }}</a></h3>
+              <p><a href="{{ path('realisation_show', {'id': realisation.id}) }}">Détails</a> </p>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% else %}
+            <tr>
+                <td colspan="7">Rien trouvé </td>
+            </tr>
+        {% endfor %}
+      </div>
+      </div>
+
+    </section>
+
+
+    <!--==========================
+      Hotels Section
+    ============================-->
+    <section id="hotels" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header">
+          <h2>NOS PRODUITS</h2>
+          <p> <a href="{{path('produit_index') }}" class="buy-tickets"> <button class="btn btn-success" type="button" name="button">En savoir plus</button> </a>  </p>
+
+        </div>
+
+        <div class="row">
+        {% for produit in produits %}
+
+            <div class="col-lg-4 col-md-6">
+              <div class="hotel">
+                <div class="hotel-img">
+                  <img src="/img/{{ produit.image}}" alt="/img/{{ produit.image }}" class="img-fluid">
+                </div>
+                <h3><a href="{{ path('produit_show', {'id': produit.id}) }}">{{ produit.libelle }}</a></h3>
+                <div class="stars">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+                <p> <a href="{{ path('produit_show', {'id': produit.id}) }}"><button class="btn btn-warning" type="button" name="button">Details</button> </a> </p>
+              </div>
+            </div>
+        {% else %}
+        <tr>
+            <td colspan="7">Rien trouvé</td>
+        </tr>
+    {% endfor %}
+
+
+
+
+        </div>
+      </div>
+
+    </section>
+
+    <!--==========================
+      Gallery Section
+    ============================-->
+    <section id="gallery" class="wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header">
+          <h2>Gallerie</h2>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="owl-carousel gallery-carousel">
+        {% for gallerie in galleries %}
+        <a href="/img/{{ gallerie.img1 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img1 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img2 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img2 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img3 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img3 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img4 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img4 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img5 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img5 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img6 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img6 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img7 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img7 }}" alt=""></a>
+        <a href="/img/{{ gallerie.img8 }}" class="venobox" data-gall="gallery-carousel"><img src="/img/{{ gallerie.img8 }}" alt=""></a>
+
+
+          {% else %}
+              <tr>
+                  <td colspan="10"> Rien  trouvé</td>
+              </tr>
+          {% endfor %}
+
+      </table>
+
+      </div>
+
+    </section>
+
+    <!--==========================
+      Sponsors Section
+    ============================-->
+    <section id="supporters" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header">
+          <h2>NOS CLIENTS</h2>
+        </div>
+
+        <div class="row no-gutters supporters-wrap clearfix">
+        {% for client in clients %}
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img1}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img2}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img3}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img4}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img5}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img6}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img7}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="supporter-logo">
+            <img src="/img/{{client.img8}}" class="img-fluid" alt="">
+          </div>
+        </div>
+        {% else %}
+        <p>Rien trouvé</p>
+        {% endfor %}
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>NOS CONTACTS</h2>
+          <p></p>
+        </div>
+
+        <div class="row contact-info">
+{% for param in params %}
+
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Adresse</h3>
+              <address>{{param.adresse}}</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3> Numero de téléphone</h3>
+              <p><a href="tel:+{{param.telephone }}">+225{{param.telephone }}</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:{{param.email }}">{{param.email }}</a></p>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+{% else %}
+<p>Rien trouvé</p>
+{% endfor %}
+
+
+    </section><!-- #contact -->
+
+  </main>
+{% endblock %}

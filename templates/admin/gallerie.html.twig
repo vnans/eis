@@ -1,0 +1,83 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Ajout d'image {% endblock %}
+
+{% block body %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Liste </h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+
+                <th>Img1</th>
+                <th>Img2</th>
+                <th>Img3</th>
+                <th>Img4</th>
+                <th>Img5</th>
+                <th>Img6</th>
+                <th>Img7</th>
+                <th>Img8</th>
+                <th>actions</th>
+            </tr>
+          </thead>
+
+          <tfoot>
+            <tr>
+
+                <th>Img1</th>
+                <th>Img2</th>
+                <th>Img3</th>
+                <th>Img4</th>
+                <th>Img5</th>
+                <th>Img6</th>
+                <th>Img7</th>
+                <th>Img8</th>
+                <th>actions</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            {% for gallerie in galleries %}
+                <tr>
+
+                    <td>{{ gallerie.img1 }}</td>
+                    <td>{{ gallerie.img2 }}</td>
+                    <td>{{ gallerie.img3 }}</td>
+                    <td>{{ gallerie.img4 }}</td>
+                    <td>{{ gallerie.img5 }}</td>
+                    <td>{{ gallerie.img6 }}</td>
+                    <td>{{ gallerie.img7 }}</td>
+                    <td>{{ gallerie.img8 }}</td>
+                    <td>
+                        <a href="{{ path('gallerie_show', {'id': gallerie.id}) }}">show</a>
+                        <a href="{{ path('gallerie_edit', {'id': gallerie.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="10">Aucun enregistrement
+                      </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

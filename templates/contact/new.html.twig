@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau message a EIS {% endblock %}
+
+{% block body %}
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+
+
+    </section>
+    <div class="row">
+      <p class="alert alert-success">{{ Message }}</p>
+    </div>
+    {{ include('contact/_form.html.twig') }}
+
+    <!-- <a href="{{ path('contact_index') }}">back to list</a> -->
+{% endblock %}

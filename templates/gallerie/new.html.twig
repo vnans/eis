@@ -1,0 +1,11 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Ma Gallerie{% endblock %}
+
+{% block body %}
+{% block h1 %}Ajouter de nouvelles images {% endblock %}
+
+    {{ include('gallerie/_form.html.twig') }}
+
+    <a href="{{ path('gallerie_index') }}">rétourt</a>
+{% endblock %}

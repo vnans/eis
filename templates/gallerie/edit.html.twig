@@ -1,0 +1,13 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Edit Gallerie{% endblock %}
+
+{% block body %}
+{% block h1 %}Mettre à jour les images {% endblock %}
+
+    {{ include('gallerie/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('gallerie_index') }}">Rétour</a>
+
+    {{ include('gallerie/_delete_form.html.twig') }}
+{% endblock %}

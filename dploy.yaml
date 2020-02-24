@@ -1,0 +1,9 @@
+dev:
+    scheme: ftp
+    host: 74.208.167.172
+    port: 21
+    user: vnans
+    pass: venance4123
+    check: true
+    path:
+        remote: /

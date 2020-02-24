@@ -1,0 +1,40 @@
+{{ form_start(form) }}
+
+<section id="contact" class="section-bg wow fadeInUp">
+  <div class="section-header">
+    <h2>Contactez Nous</h2>
+    <p>Laissez nous un message.</p>
+  </div>
+  <div class="form">
+    <!-- <div id="sendmessage">Your message has been sent. Thank you!</div> -->
+    <div id="errormessage"></div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form_widget(form.nom,{'attr' : {'class':'form-control form-control-user','id':'name', 'data-rule':'minlen:4','data-msg':'SVP  entre plus de 4 caratères','placeholder':'Votre Nom & Prenoms'}}) }}
+          <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+          <div class="validation"></div>
+        </div>
+        <div class="form-group col-md-6">
+          {{ form_widget(form.email,{'attr' : {'class':'form-control form-control-user','id':'email', 'data-rule':'email','data-msg':'SVP  entre un email valide ','placeholder':'Votre email'}}) }}
+          <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" /> -->
+          <div class="validation"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.objet,{'attr' : {'class':'form-control form-control-user','id':'subject', 'data-rule':'minlen:4','data-msg':'SVP  entre un at least 8 chars of subject','placeholder':'Objet'}}) }}
+        <!-- <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" /> -->
+        <div class="validation"></div>
+      </div>
+      <div class="form-group">
+        {{ form_widget(form.message,{'attr' : {'class':'form-control form-control-user','rows':'5','id':'message', 'data-rule':'required','data-msg':'SVP  ecrivez nous quelques chose','placeholder':'Message'}}) }}
+        <!-- <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea> -->
+        <div class="validation"></div>
+      </div>
+
+
+  </div>
+<button class="btn btn-success text-center">{{ button_label|default('Envoyer') }}</button>
+</section>
+
+{{ form_end(form) }}

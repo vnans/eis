@@ -1,0 +1,82 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Gallerie index{% endblock %}
+
+{% block body %}
+    <h1>Ma Gallerie </h1>
+  
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+      <!-- Page Heading -->
+        <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              {% for gallerie in galleries %}
+              <tr>
+                <td>{{ gallerie.img1 }}</td>
+
+              </tr>
+              <tr>
+                <td>{{ gallerie.img2 }}</td>
+
+              </tr>
+
+              <tr>
+                <td>{{ gallerie.img3 }}</td>
+
+              </tr>
+
+             <tr>
+                <td>{{ gallerie.img4 }}</td>
+
+              </tr>
+
+              <tr>
+                <td>{{ gallerie.img5 }}</td>
+
+              </tr>
+              <tr>
+
+                <td>{{ gallerie.img6 }}</td>
+
+              </tr>
+              <tr>
+
+                <td>{{ gallerie.img7 }}</td>
+
+              </tr>
+              <tr>
+
+
+                <td> {{ gallerie.img8 }} </td>
+              </tr>
+              <tr>
+
+
+                <td>
+                <a href="{{ path('gallerie_edit', {'id': gallerie.id}) }}">Modifier</a>
+                </td>
+              </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">Aucun enregistrement trouvé</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <a href="{{ path('gallerie_new') }}">Nouveau</a>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisation index{% endblock %}
+
+{% block body %}
+  <main id="main">
+    <!--==========================
+      Speakers realisation
+    ============================-->
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>NOS REALISATIONS</h2>
+          <!-- <p> <a href="{{path('service_index') }}" class="buy-tickets"> <button class="btn btn-success" type="button" name="button">En savoir plus</button> </a>  </p> -->
+        </div>
+
+        <div class="row">
+        {% for realisation in realisations %}
+        <div class="col-lg-4 col-md-6">
+          <div class="speaker">
+            <img src="/img/{{ realisation.image }}" alt="/img/{{ realisation.image }}" class="img-fluid">
+            <div class="details">
+              <h3><a href="{{ path('realisation_show', {'id': realisation.id}) }}">{{ realisation.libelle }}</a></h3>
+              <p><a href="{{ path('realisation_show', {'id': realisation.id}) }}">Détails</a> </p>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% else %}
+            <tr>
+                <td colspan="7">Rien trouvé </td>
+            </tr>
+        {% endfor %}
+      </div>
+      </div>
+
+    </section>
+
+  </main>
+
+    <!-- <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Details</th>
+                <th>Image</th>
+                <th>Piecejointe</th>
+                <th>Slug</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for realisation in realisations %}
+            <tr>
+                <td>{{ realisation.id }}</td>
+                <td>{{ realisation.libelle }}</td>
+                <td>{{ realisation.details }}</td>
+                <td>{{ realisation.image }}</td>
+                <td>{{ realisation.piecejointe }}</td>
+                <td>{{ realisation.slug }}</td>
+                <td>
+                    <a href="{{ path('realisation_show', {'id': realisation.id}) }}">show</a>
+                    <a href="{{ path('realisation_edit', {'id': realisation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('realisation_new') }}">Nouveau</a> -->
+{% endblock %}
