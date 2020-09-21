@@ -1,0 +1,15 @@
+RewriteEngine On
+            RewriteCond %{SERVER_PORT} 80
+            RewriteCond %{HTTP_HOST} ^74.208.167.172
+            RewriteRule ^(.*)$ https://74.208.167.172/$1 [R,L]
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteRule ^(.*)$ public/index.php [QSA,L]
+            RewriteCond %{HTTP:Authorization} ^(.*)
+            RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+            RewriteEngine On
+# php -- BEGIN cPanel-generated handler, do not edit
+# Définissez le package « alt-php72 » comme langage de programmation « PHP » par défaut.
+<IfModule mime_module>
+  AddType application/x-httpd-alt-php72 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

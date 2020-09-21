@@ -60,7 +60,12 @@
             <li><a href="#supporters">Sponsors</a></li> -->
             <li><a href="{{ path('contact_new') }}">Contact</a></li>
             <li><a href="{{path('default')}}">Autres</a></li>
-            <li class="buy-tickets"><a href="{{path('admin')}}">Se connecter</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="buy-tickets"><a href="{{path('app_logout')}}"> Déconnexion </a></li>
+            {% else %}
+                <li class="buy-tickets"><a href="{{path('app_login')}}"> Connexion </a></li>
+          {% endif %}
+
           </ul>
         </nav><!-- #nav-menu-container -->
       </div>
@@ -80,7 +85,7 @@
 
               <div class="col-lg-3 col-md-6 footer-info">
                 <img src="img/logo.png" alt="TheEvenet">
-                <p> slogang In alias aperiam. Placeat tempore facere. </p>
+                <p> Slogan EIS. </p>
               </div>
 
               <div class="col-lg-6 col-md-6 footer-links">
@@ -122,7 +127,17 @@
                   <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
                   <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
                 </div>
+00 F
+Forfait courant
+Forfait Internet_Residebtiel_30Go
 
+30 Go/19 000 F
+Voir tous les forfaits
+Mon compte
+
+Numéro: 74868061
+
+Crédit: 20181 FCFA
               </div>
 
             </div>
