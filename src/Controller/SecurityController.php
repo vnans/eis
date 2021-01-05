@@ -41,9 +41,7 @@ if ($request->isMethod('POST')) {
    $user = new User();
    $user->setEmail($request->request->get('email'));
    $user->setRoles(['ROLE_ADMIN']);
-   $user->setPassword($passwordEncoder->encodePassword(
-     $user,$request->request->get('password')
-   ));
+   $user->setPassword($passwordEncoder->encodePassword($user,$request->request->get('password')));
    $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
